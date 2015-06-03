@@ -26,49 +26,39 @@
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/scripts.js"></script>
       <script src="http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-<style>
-.infoWindowContent {
-    font-size:  14px !important;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-}
-h2 {
-    margin-bottom:0;
-    margin-top: 0;
-}
-body { padding-top: 60px; }
-</style>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 
 <script>
-var cities = [
+
+// coconut name,desc,lat,lang
+var coconut = [
     {
-        city : 'Toronto',
-        desc : 'This is the best city in the world!',
-        lat : 13.050015,
-        long : 80.251444
+        location : 'Sterling Road',
+        desc : 'Landmarks : Mexican griller , Maplai restaurant',
+        lat : 13.063578,
+        long : 80.236258
     },
     {
-        city : 'New York',
-        desc : 'This city is aiiiiite!',
-        lat : 13.040231,
-        long : 80.233248
+        location : 'Valluvar Kottam High Road',
+        desc : 'Landmarks : Opposite to Amma Unavagam, Specmakers',
+        lat : 13.060341,
+        long : 80.242795
     },
     {
-        city : 'Chicago',
-        desc : 'This is the second best city in the world!',
+        location : 'Chicago',
+        desc : 'This is the second best location in the world!',
         lat : 13.059630,
         long : 80.242432
     },
     {
-        city : 'Los Angeles',
-        desc : 'This city is live!',
+        location : 'Los Angeles',
+        desc : 'This location is live!',
         lat : 13.055282,
         long : 80.258139
     },
     {
-        city : 'Las Vegas',
-        desc : 'Sin City...\'nuff said!',
+        location : 'Las Vegas',
+        desc : 'Sin location...\'nuff said!',
         lat : 13.060299,
         long : 80.285433
     }
@@ -77,32 +67,32 @@ var cities = [
 
 var kerala = [
     {
-        city : 'chennai',
-        desc : 'This is the best city in the world!',
+        location : 'chennai',
+        desc : 'This is the best location in the world!',
         lat : 9.595618,
         long : 76.299873
     },
     {
-        city : 'New York',
-        desc : 'This city is aiiiiite!',
+        location : 'New York',
+        desc : 'This location is aiiiiite!',
         lat : 9.591217,
         long : 76.520286
     },
     {
-        city : 'Chicago',
-        desc : 'This is the second best city in the world!',
+        location : 'Chicago',
+        desc : 'This is the second best location in the world!',
         lat : 9.535727,
         long : 76.443725
     },
     {
-        city : 'Los Angeles',
-        desc : 'This city is live!',
+        location : 'Los Angeles',
+        desc : 'This location is live!',
         lat : 9.498142, 
         long : 76.338668
     },
     {
-        city : 'Las Vegas',
-        desc : 'Sin City...\'nuff said!',
+        location : 'Las Vegas',
+        desc : 'Sin location...\'nuff said!',
         lat : 9.629162,
         long : 76.423812
     }
@@ -111,9 +101,10 @@ var kerala = [
 //Angular App Module and Controller
 angular.module('mapsApp', []).controller('MapCtrl', function ($scope) {
 
+    //map options
     var mapOptions = {
-        zoom: 6,
-        center: new google.maps.LatLng(13.084210, 80.276507),
+        zoom: 12,
+        center: new google.maps.LatLng(13.073728, 80.225850),
         mapTypeId: google.maps.MapTypeId.TERRAIN,
 		disableDefaultUI: true
 
@@ -126,57 +117,60 @@ angular.module('mapsApp', []).controller('MapCtrl', function ($scope) {
     
     var infoWindow = new google.maps.InfoWindow();
     
+	//creating function for marker
     var createMarker = function (info){
         
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city,
-			icon: $scope.coconut + 'maps.png'
+            title: info.location,
+			icon: $scope.coconut + 'coconut.png'
         });
 		
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
         
         google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+            infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
             infoWindow.open($scope.map, marker);
-			$scope.map.setZoom(16);
+			$scope.map.setZoom(17);
             $scope.map.setCenter(marker.getPosition());                             
         });		
 		
         $scope.markers.push(marker);        
     } 
 
-	var kerMarker = function (info){
+	// var kerMarker = function (info){
         
-        var marker = new google.maps.Marker({
-            map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city,
-			icon: $scope.coconut + 'coc.png'
-        });
+        // var marker = new google.maps.Marker({
+            // map: $scope.map,
+            // position: new google.maps.LatLng(info.lat, info.long),
+            // title: info.location,
+			// icon: $scope.coconut + 'coc.png'
+        // });
 		
-        marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+        // marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
         
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-            infoWindow.open($scope.map, marker);
-			$scope.map.setZoom(16);
-            $scope.map.setCenter(marker.getPosition());                             
-        });		
+        // google.maps.event.addListener(marker, 'click', function(){
+            // infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
+            // infoWindow.open($scope.map, marker);
+			// $scope.map.setZoom(16);
+            // $scope.map.setCenter(marker.getPosition());                             
+        // });		
 		
-        $scope.kermarkers.push(marker);
+        // $scope.kermarkers.push(marker);
         
-    }
+    // }
     
-    for (i = 0; i < cities.length; i++){
-        createMarker(cities[i]);
+	//looping for coconut marking
+    for (i = 0; i < coconut.length; i++){
+        createMarker(coconut[i]);
     }
 
-	for (i = 0; i < kerala.length; i++){
-        kerMarker(kerala[i]);
-    }
+	// for (i = 0; i < kerala.length; i++){
+        // kerMarker(kerala[i]);
+    // }
 	
+	//triggering for selected marker
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
@@ -279,7 +273,7 @@ angular.module('mapsApp', []).controller('MapCtrl', function ($scope) {
                         </div>
                      </div>
                   </div>
-                  <div class="panel panel-warning">
+                  <!-- <div class="panel panel-warning">
                      <div class="panel-heading">
                         <a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#chetpet">Nungambakkam #2</a>
                      </div>
@@ -288,7 +282,7 @@ angular.module('mapsApp', []).controller('MapCtrl', function ($scope) {
                            <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                </div>
             </div>
          </div>
