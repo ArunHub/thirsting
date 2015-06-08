@@ -32,39 +32,51 @@
          var coconut = [
              {
                  location : 'Sterling Road',
-                 desc : 'Landmarks : Mexican griller , Maplai restaurant',
+                 desc : 'opp. to Mexican griller | after Maplai restaurant',
                  lat : 13.063578,
                  long : 80.236258
              },
              {
                  location : 'Valluvar Kottam High Road',
-                 desc : 'Landmarks : Opposite to Amma Unavagam, Specmakers',
+                 desc : 'Opposite to Amma Unavagam, Specmakers',
                  lat : 13.060341,
                  long : 80.242795
              },
              {
-                 location : 'Velachery',
-                 desc : 'This is the second best location in the world!',
+                 location : 'Vijayanagar North Extension 1st street',
+                 desc : '1st street is opposite to Menaka cards | street is behind Megamart road',
                  lat : 12.973927,
                  long : 80.219511
              },
+			 {
+                 location : 'Vijayanagar North Extension 1st street',
+                 desc : '1st street is opposite to Menaka cards | street is behind Megamart road',
+                 lat : 12.975069,
+                 long : 80.219932
+             },
              {
-                 location : 'Velachery',
-                 desc : 'Reach after Manosavar Honda showroom',
+                 location : 'Velachery Bypass road',
+                 desc : 'Reach before Maanosarovar Honda showroom',
                  lat : 12.983828,
                  long : 80.217818
              },
              {
-                 location : 'Velachery',
-                 desc : 'After Denty care and before Velachery Eri',
-                 lat : 12.985554,
-                 long : 80.217780
+                 location : 'Velachery Eri Lake',
+                 desc : 'Infront of Denty care and Karnataka bank before Velachery Eri',
+                 lat : 12.986028,
+                 long : 80.217903
              },
          	{
                  location : 'Thiruvanmiyur',
                  desc : 'Behind Bus Depot',
                  lat : 12.986739, 
                  long : 80.258028 
+             },
+         	{
+                 location : 'Anna Salai',
+                 desc : 'Near to Quaid-e-Milleth Govt. College and opp. to Spencer Bike parking',
+                 lat : 13.063160, 
+                 long : 80.262166 
              }
          ];
          
@@ -183,11 +195,7 @@
          
          });
       </script>
-      <script>
-         $(function () {
-           $('[data-toggle="popover"]').popover()
-         })
-      </script>
+      
    </head>
    <body ng-app="mapsApp">
       <div class="container">
@@ -200,8 +208,8 @@
                   </div>
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                      <ul class="nav navbar-nav">
-                        <li class="active">
-                           <a href="" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Hello Guys. This website is just an information about coconut sellers. Its an initiative to mark their business in Google Maps for their location.">About</a>
+                        <li class="">                        
+						   <a data-toggle="modal" data-target="#cocAbout" href="#">About</a>
                         </li>
                         <li>
                            <a data-toggle="modal" data-target="#myModal" href="#">Add your Nearbys</a>
@@ -306,7 +314,7 @@
             </div>
          </div>		 
       </div>
-	  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                <div class="modal-dialog">
                   <div class="modal-content">
                      <div class="modal-header">
@@ -329,10 +337,26 @@
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                       
                      </div>
                   </div>
                </div>
-            </div>
+        </div>
+		<div class="modal fade" id="cocAbout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add your Nearby</h4>
+                     </div>
+                     <div class="modal-body">
+                        Hello Guys. This website is just an information about coconut sellers. Its an initiative to mark their business in Google Maps for their location.
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                        
+                     </div>
+                  </div>
+               </div>
+        </div>
    </body>
 </html>
