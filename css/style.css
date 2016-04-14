@@ -7,5 +7,14 @@ h3 {
     margin-bottom:0;
     margin-top: 0;
 }
-body { padding-top: 60px; }
-#map{width:100%; height:600px}
+#map{width:100%; height:600px;}
+
+aside{
+	width: 25%;
+	float: left;
+}
+
+main{
+	width: 75%;
+	float: left;
+}
