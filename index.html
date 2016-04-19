@@ -20,6 +20,7 @@
     <script src="http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
     <script src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/angular-animate.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -101,7 +102,7 @@
                 <a class="panel-title">Nungambakkam #1</a>
               </div>
               <ul class="list-group">
-                <li class="list-group-item" ng-repeat="marker in markers | orderBy : 'title' | searchFilter : searchPlace">
+                <li class="list-group-item fadein" ng-repeat="marker in markers | orderBy : 'title' | searchFilter : searchPlace">
                 <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
                 </li>
               </ul>

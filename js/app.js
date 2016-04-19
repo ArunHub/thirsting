@@ -1,6 +1,6 @@
 
     //Angular App Module and Controller
-    var app = angular.module('mapsApp', []);
+    var app = angular.module('mapsApp', ['ngAnimate']);
     //map options
 
     app.controller('MapCtrl', function ($scope) {
