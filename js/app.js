@@ -29,7 +29,8 @@
         position: new google.maps.LatLng(info.lat, info.long),
         title: info.location,
         icon: $scope.coconut + 'coconut.png',
-        content : '<div class="infoWindowContent">' + info.desc + '</div>'
+        content : '<div class="infoWindowContent">' + info.desc + '</div>',
+        noresult:true
     });    
             
     google.maps.event.addListener(marker, 'click', function(){
@@ -42,24 +43,27 @@
         
     $scope.markers.push(marker);
 
+    $scope.isShowing = false;
+
+
     }
 
     //looping for coconut marking
     for (i = 0; i < coconut.length; i++){
     createMarker(coconut[i]);
     }
-    
-    
-      // for (i = 0; i < kerala.length; i++){
-    // kerMarker(kerala[i]);
-    // }
-      
+
+         
       //triggering for selected marker
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
         }
+
+
     });
+
+
 
 
     app.filter('searchFilter',function(){
@@ -68,12 +72,12 @@
                 return markers;
             }
 
-            var result = [];
+            var result = [];            
 
             searhPlace = searhPlace.toLowerCase();
+
             angular.forEach(markers,function(marker){                
                 if (marker.title.toLowerCase().indexOf(searhPlace) !== -1) {
-                    console.log(marker.title.toLowerCase());
                     result.push(marker);
                 }
             });
