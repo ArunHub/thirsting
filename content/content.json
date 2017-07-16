@@ -1,32 +1,39 @@
-[
-  {
-    "location": "Sterling Road",
-    "desc": "Landmarks : Mexican griller , Maplai restaurant",
-    "lat": 13.063578,
-    "long": 80.236258
-  },
-  {
-    "location": "Valluvar Kottam High Road",
-    "desc": "Landmarks : Opposite to Amma Unavagam, Specmakers",
-    "lat": 13.060341,
-    "long": 80.242795
-  },
-  {
-    "location": "Chicago",
-    "desc": "This is the second best location in the world!",
-    "lat": 13.05963,
-    "long": 80.242432
-  },
-  {
-    "location": "Los Angeles",
-    "desc": "This location is live!",
-    "lat": 13.055282,
-    "long": 80.258139
-  },
-  {
-    "location": "Las Vegas",
-    "desc": "Sin location...\"nuff said!",
-    "lat": 13.060299,
-    "long": 80.285433
-  }
-]
+{
+    "locations": [
+    {
+        "area": "Sterling Road",
+        "desc": "Landmarks : Mexican griller , Maplai restaurant",
+        "lat": 13.063578,
+        "long": 80.236258
+    },
+    {
+        "area": "Valluvar Kottam High Road",
+        "desc": "Landmarks : Opposite to Amma Unavagam, Specmakers",
+        "lat": 13.060341,
+        "long": 80.242795
+    },
+    {
+        "area": "Chicago",
+        "desc": "This is the second best location in the world!",
+        "lat": 13.05963,
+        "long": 80.242432
+    },
+    {
+        "area": "Los Angeles",
+        "desc": "This area is live!",
+        "lat": 13.055282,
+        "long": 80.258139
+    },
+    {
+        "area": "Las Vegas",
+        "desc": "Sin location...\"nuff said!",
+        "lat": 13.060299,
+        "long": 80.285433
+    }],
+    "mapOptions" : {
+        "zoom": 12,
+        "center": "new google.maps.LatLng(13.073728, 80.225850)",
+        "mapTypeId": "google.maps.MapTypeId.TERRAIN",
+        "disableDefaultUI": true
+    }
+}

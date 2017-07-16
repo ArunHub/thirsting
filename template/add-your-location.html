@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Location</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Location">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Description</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Latitude</label>
+            <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Latitude">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Longitude</label>
+            <input type="text" class="form-control" id="exampleInputPassword3" placeholder="Longitude">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="addLocation.cancel()" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="addLocation.ok()">Save changes</button>
+</div>
