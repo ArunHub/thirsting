@@ -72,32 +72,7 @@
                 <li class="list-group-item" ng-if="!(markers | searchFilter : searchPlace).length"><a href="#">No results found</a></li>
             </ul>
         </div>
-        <!--         <uib-accordion close-others="oneAtATime">
-            <uib-accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                This content is straight in the template.
-            </uib-accordion-group>
-            <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-                {{group.content}}
-            </uib-accordion-group>
-            <uib-accordion-group heading="Dynamic Body Content">
-                <p>The body of the uib-accordion group grows to fit the contents</p>
-                <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-                <div ng-repeat="item in items">{{item}}</div>
-            </uib-accordion-group>
-            <uib-accordion-group heading="Custom template" template-url="template/group-template.html">
-                Hello
-            </uib-accordion-group>
-            <uib-accordion-group heading="Delete account" panel-class="panel-danger">
-                <p>Please, to delete your account, click the button below</p>
-                <button class="btn btn-danger">Delete</button>
-            </uib-accordion-group>
-            <uib-accordion-group is-open="status.open">
-                <uib-accordion-heading>
-                    I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                </uib-accordion-heading>
-                This is just some content to illustrate fancy headings.
-            </uib-accordion-group>
-        </uib-accordion> -->
+
         <uib-accordion close-others="oneAtATime">
             <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                 This content is straight in the template.
@@ -130,6 +105,7 @@
                 This is just some content to illustrate fancy headings.
             </div>
         </uib-accordion>
+        
     </aside>
     <main>
         <div id="map"></div>
@@ -137,7 +113,7 @@
     <!-- library scripts -->
     <!-- <script src="http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script> -->
     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBY7xfEOB4Wq5sa0VaeXhvMI5Aa86ces&callback=initMap" type="text/javascript"></script>     -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBY7xfEOB4Wq5sa0VaeXhvMI5Aa86ces" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBY7xfEOB4Wq5sa0VaeXhvMI5Aa86ces" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-touch.min.js"></script>

@@ -13,6 +13,7 @@ app.controller('MapCtrl', ['$scope', '$http', 'services', '$uibModal', '$log', '
 
     // scopes
     $scope.markers = [];
+    // $scope.markersss = [];
 
     //creating function for marker
     function createMarker(locationObj) {
@@ -49,7 +50,8 @@ app.controller('MapCtrl', ['$scope', '$http', 'services', '$uibModal', '$log', '
         var locations = response.data.locations;
         locations.forEach(function(location) {
             createMarker(location);
-        })
+        });
+        // $scope.markersss = services.markerList();
 
     }, function errorCallback(error) {
         // called asynchronously if an error occurs
