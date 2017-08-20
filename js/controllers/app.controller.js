@@ -1,37 +1,36 @@
 app.controller('MapCtrl', ['$scope', '$http', 'services', '$uibModal', '$log', '$document', function($scope, $http, services, $uibModal, $log, $document) {
     // variables
     var
-        mapOptions = {
+        MAP_OPTIONS = {
             zoom: 12,
             center: new google.maps.LatLng(13.073728, 80.225850),
             mapTypeId: google.maps.MapTypeId.TERRAIN,
             disableDefaultUI: true
         },
-        imgPath = 'img/',
-        map = new google.maps.Map(document.getElementById('map'), mapOptions),
-        infoWindow = new google.maps.InfoWindow();
+        IMG_PATH = 'img/',
+        MAP = new google.maps.Map(document.getElementById('map'), MAP_OPTIONS),
+        INFO_WINDOW = new google.maps.InfoWindow();
 
     // scopes
     $scope.markers = [];
-    // $scope.markersss = [];
 
     //creating function for marker
     function createMarker(locationObj) {
 
         var marker = new google.maps.Marker({
-            map: map,
+            map: MAP,
             position: new google.maps.LatLng(locationObj.lat, locationObj.long),
             title: locationObj.area,
-            icon: imgPath + 'coconut.png',
+            icon: IMG_PATH + 'coconut.png',
             content: '<div class="infoWindowContent">' + locationObj.desc + '</div>',
             noresult: true
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
-            infoWindow.open(map, marker);
-            map.setZoom(17);
-            map.setCenter(marker.getPosition());
+            INFO_WINDOW.setContent('<h3>' + marker.title + '</h3>' + marker.content);
+            INFO_WINDOW.open(MAP, marker);
+            MAP.setZoom(17);
+            MAP.setCenter(marker.getPosition());
         });
 
         $scope.markers.push(marker);
@@ -45,18 +44,16 @@ app.controller('MapCtrl', ['$scope', '$http', 'services', '$uibModal', '$log', '
 
     // call CMS services
     services.CMS().then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
+        // this callback will be called asynchronously when the response is available
+
         var locations = response.data.locations;
         locations.forEach(function(location) {
             createMarker(location);
         });
-        // $scope.markersss = services.markerList();
 
     }, function errorCallback(error) {
-        // called asynchronously if an error occurs
+        // called asynchronously if an error occurs or server returns response with an error status.
         console.error(error);
-        // or server returns response with an error status.
     });
 
     // Add location modal
@@ -91,7 +88,5 @@ app.controller('MapCtrl', ['$scope', '$http', 'services', '$uibModal', '$log', '
 
     $scope.openInfoWindow = openInfoWindow;
     $scope.addLocationModal = addLocationModal;
-    // $scope.addLocationModal = addLocationModal;
-
 
 }]);
